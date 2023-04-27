@@ -68,7 +68,7 @@ const navigate = useNavigate();
 
 const Container = styled.div`
   .scrolled {
-    background-color: black;
+    background-color: transperent;
   }
   nav {
     position: sticky;
