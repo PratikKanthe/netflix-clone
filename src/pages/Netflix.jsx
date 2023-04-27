@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar';
-import backgroundImage from './components/BackgroundImage';
-import MovieLogo from "./assets/homeTitle.webp"
+import backgroundImage from '../components/BackgroundImage';
+import MovieLogo from '../assets/homeTitle.webp'
 import { FaPlay } from 'react-icons/fa';
 import {AiOutlineInfoCircle} from "react-icons/ai";
 
