@@ -52,8 +52,8 @@ const navigate = useNavigate();
                     onMouseEnter={() => setInputHover(false)}
                     onMouseLeave={() => setInputHover(false)}
                     onBlur={() => {
-                        setShowSearched(false);
-                        setInputHover(false);
+                        setShowSearched(true);
+                        setInputHover(true);
                     }}
                     />
             </div>
