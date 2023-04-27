@@ -46,7 +46,7 @@ const Container = styled.div`
   .hero {
     position: relative;
     .background-image {
-      filter: brightness(60%)
+      filter: brightness(60%);
     }
     img {
       height: 100vh;
