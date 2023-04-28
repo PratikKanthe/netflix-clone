@@ -10,15 +10,16 @@ import axios from "axios";
 const initialState = {
     movies: [],
     generesLoaded: false,
-    generes: [],
+    genres: [],
 };
 
-export const getGeneres = createAsyncThunk("netflix/generes", async()=>{
-    const {data} = await axios.get(
+export const getGeneres = createAsyncThunk("netflix/genres", async()=>{
+    const { 
+        data: {genres},
+    } = await axios.get(
         `${TMDB_BASE_URL}/genre/movie/list?api_key=${API_KEY}`
         );
-        console.log(data);
-        // return data;
+        return genres;
 });
 
 const NetflixSlice = createSlice({
