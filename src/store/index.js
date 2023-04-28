@@ -15,7 +15,7 @@ const initialState = {
 
 export const getGeneres = createAsyncThunk("netflix/generes", async()=>{
     const {data} = await axios.get(
-        `${TMDB_BASE_URL}/genre/movie/list?api_key${API_KEY}`
+        `${TMDB_BASE_URL}/genre/movie/list?api_key=${API_KEY}`
         );
         console.log(data);
         // return data;
