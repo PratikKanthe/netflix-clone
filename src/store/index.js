@@ -9,11 +9,11 @@ import axios from "axios";
 
 const initialState = {
     movies: [],
-    generesLoaded: false,
+    genresLoaded: false,
     genres: [],
 };
 
-export const getGeneres = createAsyncThunk("netflix/genres", async()=>{
+export const getGenres = createAsyncThunk("netflix/genres", async()=>{
     const { 
         data: {genres},
     } = await axios.get(
@@ -26,9 +26,9 @@ const NetflixSlice = createSlice({
     name: "Netflix",
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(getGeneres.fulfilled,(state,action)=> {
-            state.generes = action.payload;
-            state.generesLoaded=true;
+        builder.addCase(getGenres.fulfilled,(state,action)=> {
+            state.genres = action.payload;
+            state.genresLoaded=true;
         })
     }
 });

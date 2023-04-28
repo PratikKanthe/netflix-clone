@@ -7,7 +7,7 @@ import {AiOutlineInfoCircle} from "react-icons/ai";
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { getGeneres } from '../store';
+import { getGenres } from '../store';
 
 function Netflix() {
 
@@ -17,7 +17,7 @@ function Netflix() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(getGeneres());
+    dispatch(getGenres());
   },[])
 
   window.onscroll = () => {
