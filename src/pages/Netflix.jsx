@@ -12,7 +12,7 @@ function Netflix() {
 
 
   window.onscroll = () => {
-    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    setIsScrolled(window.pageXOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
 

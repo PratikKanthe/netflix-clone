@@ -7,7 +7,7 @@ import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 
-export default function Navbar(isScrolled) {
+export default function Navbar(props) {
   const links = [
     { name: "Home", link: "/" },
     { name: "TV Shows", link: "/tv" },
@@ -25,7 +25,7 @@ const navigate = useNavigate();
 
 
   return <Container>
-    <nav className={`${isScrolled ? "scrolled" : ""} flex`}>
+    <nav className={`${props.isScrolled ? "scrolled" : ""} flex`}>
         <div className="left flex a-center">
             <div className="brand flex a-center j-center">
                 <img src={logo} alt="logo" />
