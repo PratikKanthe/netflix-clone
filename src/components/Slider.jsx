@@ -1,10 +1,10 @@
 import React from 'react'
 import CardSlider from './CardSlider'
 
-export default function Slider(movies) {
+export default function Slider({movies}) {
 
 const getMoviesFromrange = (from, to) => {
-    return movies.slice(from, to)
+    return movies.slice(from, to);
 }
 
   return (
