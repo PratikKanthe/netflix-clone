@@ -29,7 +29,6 @@ function Netflix() {
     setIsScrolled(window.pageXOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
-console.log(movies);
 
   return (
     <Container>
