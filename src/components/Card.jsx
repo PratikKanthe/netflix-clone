@@ -1,10 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import video from "../assets/video.mp4"
 import styled from 'styled-components'
+import {IoPlayCircleSharp} from "react-icons/io5"
+import {RiThumbFill, RiThumbDownFill} from "react-icons/ri"
+import {BsCheck} from "react-icons/bs"
+import {AiOutlinePlus} from "react-icons/ai"
+import {BiChevronDown} from "react-icons/bi"
+
 
 export default function Card({movieData, isliked = false}) {
+
+const [isHovered, setIsHovered] = useState(false);  
+const navigate = useNavigate();
+
   return (
-    <Container>
-        <img src={`https://image.tmdb.org/t/p/w500${movieData.image}`} alt="movies" />
+    <Container 
+        onMouseEnter={()=> setIsHovered(true)}
+        onMouseLeave={()=> setIsHovered(false)}
+    >
+        <img 
+            src={`https://image.tmdb.org/t/p/w500${movieData.image}`} 
+            alt="movies" 
+        />
+        {isHovered && (
+            <div className="hover">
+                <div className="image vide container">
+                <img 
+                    src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
+                    alt="movies" 
+                    onClick={()=>navigate("/player")}
+                /> 
+                <video 
+                src={video} 
+                autoPlay loop muted
+                onClick={()=>navigate("/player")}
+                />
+                </div>
+                <div className="info-container flex column">
+                    <h3 className='name' onClick={()=>navigate("/player")}> 
+                        {movieData.name} 
+                    </h3>
+                    <div className="icons flex j-between">
+                        <div className="controls flex">
+                            <IoPlayCircleSharp 
+                                title='play' 
+                                onClick={()=>navigate("/player")}
+                            />
+                            <RiThumbFill title='Like' />
+                            <RiThumbDownFill title='Dislke' />
+                            {
+                                isliked? 
+                                <BsCheck title='Remove From List' /> :
+                                <AiOutlinePlus title='Add to my list' />
+                            }
+                        </div>
+                        <div className="info">
+                           <BiChevronDown title='More Info' />
+                        </div>
+                        <div className="genres flex">
+                            <ul className='flex'>{movieData.genres.map((genre) =>
+                                <li key={genre}>{genre}</li>
+                            )}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
     </Container>
   )
 }
