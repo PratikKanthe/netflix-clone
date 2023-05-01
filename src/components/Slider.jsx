@@ -1,20 +1,26 @@
-import React from 'react'
-import CardSlider from './CardSlider'
-
-export default function Slider({movies}) {
-
-const getMoviesFromrange = (from, to) => {
+import React from "react";
+import styled from "styled-components";
+import CardSlider from "./CardSlider";
+export default function Slider({ movies }) {
+  const getMoviesFromRange = (from, to) => {
     return movies.slice(from, to);
+  };
+  return (
+    <Container>
+      <CardSlider data={getMoviesFromRange(0, 10)} title="Trending Now" />
+      <CardSlider data={getMoviesFromRange(10, 20)} title="New Releases" />
+      <CardSlider
+        data={getMoviesFromRange(20, 30)}
+        title="Blockbuster Movies"
+      />
+      <CardSlider
+        data={getMoviesFromRange(30, 40)}
+        title="Popular on Netflix"
+      />
+      <CardSlider data={getMoviesFromRange(40, 50)} title="Action Movies" />
+      <CardSlider data={getMoviesFromRange(50, 60)} title="Epics" />
+    </Container>
+  );
 }
 
-  return (
-    <div>
-        <CardSlider  title="Trending Now" data={getMoviesFromrange(0, 10)} />
-        <CardSlider  title="New Releases" data={getMoviesFromrange(10, 20)} />
-        <CardSlider  title="Blockbuster Movies" data={getMoviesFromrange(20, 30)} />
-        <CardSlider  title="Popular On Netflix" data={getMoviesFromrange(30, 40)} />
-        <CardSlider  title="Action Movies" data={getMoviesFromrange(40, 50)} />
-        <CardSlider  title="Epics" data={getMoviesFromrange(50, 60)} />
-    </div>
-  )
-}
+const Container = styled.div``;
