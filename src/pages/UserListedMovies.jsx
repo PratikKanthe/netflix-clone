@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import { getUsersLikedMovies } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function UserLiked() {
+export default function UserListedMovies() {
   const movies = useSelector((state) => state.netflix.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function UserLiked() {
     if (email) {
       dispatch(getUsersLikedMovies(email));
     }
-  }, [dispatch, email]);
+  }, [dispatch,email]);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -38,7 +38,7 @@ export default function UserLiked() {
       <div className="content flex column">
         <h1>My List</h1>
         <div className="grid flex">
-        {movies.map((movie, index) => {
+          {movies.map((movie, index) => {
             return (
               <Card
                 movieData={movie}
